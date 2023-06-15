@@ -1,0 +1,53 @@
+Slide 1: Introduction
+
+Title: Cannibalization Across Products
+Introduction to the topic and its significance in sales and product strategy
+Slide 2: What is Cannibalization?
+
+Definition of cannibalization: The negative impact on sales of one product due to the introduction or presence of another related product
+Explanation of how cannibalization can occur within a company or market
+Slide 3: Importance of Measuring Cannibalization
+
+Importance of measuring cannibalization for businesses:
+Understanding competition between products
+Making informed decisions on product portfolio, pricing, and marketing strategies
+Slide 4: Introducing the Can_Score
+
+Definition of the can_score: A measure to quantify cannibalization between products A and B
+Formula: can_score = Sales of A when both are co-viewed / (Sales of B when both are co-viewed + Sales of A when both are co-viewed)
+Slide 5: Interpreting the Can_Score
+
+Interpretation of can_score values:
+Values close to 1 indicate higher cannibalization of product A on its own sales compared to product B
+Values close to 0 suggest less cannibalization of product A by product B
+Slide 6: Case Study 1: Product A vs. Product B
+
+Present a specific case study example with products A and B
+Sales figures for both products when co-viewed
+Calculation of the can_score for this case study and interpretation of the result
+Slide 7: Case Study 2: Different Product Categories
+
+Illustrate cannibalization between products in different categories
+Explain how cannibalization can occur even without direct substitution
+Calculation of the can_score for this case study and interpretation of the result
+Slide 8: Strategies to Manage Cannibalization
+
+Strategies for mitigating cannibalization effects:
+Differentiating products for specific customer segments
+Pricing strategies to differentiate value propositions
+Marketing and positioning efforts to highlight unique features
+Slide 9: Case Study 3: Successful Cannibalization Management
+
+Show a case study of a company that effectively managed cannibalization
+Highlight the strategies implemented and the achieved results
+Slide 10: Conclusion
+
+Recap of the main points discussed
+Emphasize the importance of understanding and managing cannibalization for business success
+Slide 11: Questions and Answers
+
+Encourage audience questions and provide answers based on the content covered
+Slide 12: Thank You
+
+Express gratitude to the audience
+Provide contact information for further inquiries or discussions
