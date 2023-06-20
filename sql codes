@@ -1,0 +1,150 @@
+SQL stands for Structured Query Language
+SQL can execute queries against a database
+SQL can retrieve data from a database
+SQL can insert records in a database
+SQL can update records in a database
+SQL can delete records from a database
+SQL can create new databases
+SQL can create new tables in a database
+SQL can create stored procedures in a database
+SQL can create views in a database
+SQL can set permissions on tables, procedures, and views
+
+select * from Customers
+select age from Customers;
+
+SELECT DISTINCT Country FROM Customers;
+
+Filtering
+string
+SELECT * FROM Customers
+WHERE Country='USA';
+
+ integer
+SELECT * FROM Customers
+WHERE customer_id=1;
+
+AND OR NOT
+SELECT * FROM Customers
+WHERE Country='USA' AND age='22';
+
+SELECT * FROM Customers
+WHERE Country='USA' AND NOT age='22';
+
+select * from Customers where age in (22,24,25);
+select * from Customers where age between 22 and 25
+
+
+Order by
+SELECT * FROM Customers
+ORDER BY AGE DESC;
+
+INSERT new entire row
+
+INSERT INTO Customers 
+VALUES (6,'Vinod','das',29,'USA');
+Insert only to some columns
+INSERT INTO Customers  (customer_id, first_name, country)
+VALUES (7,'Paula','Germany');
+
+ISNULL
+SELECT first_name
+FROM Customers
+WHERE age IS NULL;
+
+UPDATE
+UPDATE Customers
+SET last_name = 'Bogota', country= 'UAE'
+WHERE first_name = 'Paula';
+
+CREATE TABLE Persons (PersonID int,FirstName varchar(255),LastName varchar(255),country varchar(255) );
+
+insert into persons values (1,'John','Doe','USA')
+
+Primary key ,  not null
+
+CREATE TABLE Persons (PersonID int NOT NULL primary key,FirstName varchar(255),LastName varchar(255),country varchar(255) );
+
+
+insert into persons values (1,'John','Doe','USA')
+insert into persons (FirstName) values ('Paula')
+
+
+Insert from another table
+insert into persons 
+select customer_id,first_name,last_name,country  from Customers where age = 22
+
+
+
+DELETE FROM persons;
+drop table Persons
+
+select count(*) from Customers  –  avg,sum
+
+SELECT count(DISTINCT Country) FROM Customers;
+select min(age) from Customers
+
+
+SELECT Orders.order_id,Orders.customer_id, Customers.first_name, Orders.item
+FROM Orders
+INNER JOIN Customers ON Orders.customer_id=Customers.customer_id;
+
+SELECT *
+FROM Orders
+LEFT JOIN Customers ON Orders.customer_id=Customers.customer_id;
+
+SELECT Country , COUNT(customer_id) as Num_customers
+FROM Customers
+GROUP BY Country;
+
+SELECT  age, COUNT(customer_id)
+FROM Customers
+GROUP BY age
+HAVING COUNT(customer_id) >= 2;
+
+
+CREATE TABLE StudentScores (
+    StudentID INT,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Subject VARCHAR(50),
+    Score INT
+);
+
+INSERT INTO StudentScores (StudentID, FirstName, LastName, Subject, Score)
+VALUES (1, 'John', 'Doe', 'Math', 80),
+       (2, 'Jane', 'Smith', 'Math', 90),
+       (3, 'David', 'Johnson', 'Math', 80),
+       (4, 'Emily', 'Brown', 'Math', 85),
+       (5, 'Michael', 'Davis', 'Math', 95),
+       (6, 'Sarah', 'Jones', 'Science', 70),
+       (7, 'Robert', 'Lee', 'Science', 90),
+       (8, 'Jessica', 'Wilson', 'Science', 95),
+       (9, 'Daniel', 'Taylor', 'Science', 95),
+       (10, 'Olivia', 'Clark', 'Science', 95),
+       (11, 'James', 'Anderson', 'History', 75),
+       (12, 'Emma', 'Thomas', 'History', 80),
+       (13, 'William', 'White', 'History', 85),
+       (14, 'Sophia', 'Hall', 'History', 90),
+       (15, 'Benjamin', 'Lewis', 'History', 95),
+       (16, 'Ava', 'Walker', 'Geography', 85),
+       (17, 'Alexander', 'Scott', 'Geography', 80),
+       (18, 'Mia', 'Adams', 'Geography', 75),
+       (19, 'Henry', 'Cook', 'Geography', 90),
+       (20, 'Lily', 'Baker', 'Geography', 75),
+       (21, 'Ethan', 'Miller', 'Math', 70),
+       (22, 'Charlotte', 'Harris', 'Math', 75),
+       (23, 'Noah', 'Thomas', 'Science', 80),
+       (24, 'Amelia', 'Wilson', 'Science', 90),
+       (25, 'Liam', 'Clark', 'Science', 95);
+
+
+
+
+select * from (     
+SELECT StudentID, FirstName, LastName, Subject, Score,
+       ROW_NUMBER() OVER (PARTITION BY Subject ORDER BY Score DESC) AS RowNumber,
+       RANK() OVER (PARTITION BY Subject ORDER BY Score DESC) AS Rank,
+       DENSE_RANK() OVER (PARTITION BY Subject ORDER BY Score DESC) AS DenseRank
+FROM StudentScores)
+where RowNumber=2
