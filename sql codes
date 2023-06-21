@@ -74,7 +74,9 @@ Insert from another table
 insert into persons 
 select customer_id,first_name,last_name,country  from Customers where age = 22
 
-
+CREATE TABLE NewTable AS
+SELECT *
+FROM OriginalTable;
 
 DELETE FROM persons;
 drop table Persons
